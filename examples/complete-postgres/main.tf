@@ -65,7 +65,7 @@ module "db" {
 
   # All available versions: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts
   engine               = "postgres"
-  engine_version       = "11.10"
+  engine_version       = "11.14"
   family               = "postgres11" # DB parameter group
   major_engine_version = "11"         # DB option group
   instance_class       = "db.t2.micro"
@@ -135,7 +135,7 @@ module "db_default" {
 
   # All available versions: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts
   engine               = "postgres"
-  engine_version       = "11.10"
+  engine_version       = "11.14"
   family               = "postgres11" # DB parameter group
   major_engine_version = "11"         # DB option group
   instance_class       = "db.t2.micro"
