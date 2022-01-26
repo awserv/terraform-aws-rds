@@ -52,7 +52,7 @@ module "db_option_group" {
   name                     = coalesce(var.option_group_name, var.identifier)
   use_name_prefix          = var.option_group_use_name_prefix
   option_group_description = var.option_group_description
-  engine_name              = var.engine ? 1 : 0
+  engine_name              = var.engine
   major_engine_version     = var.major_engine_version
 
   options = var.options
