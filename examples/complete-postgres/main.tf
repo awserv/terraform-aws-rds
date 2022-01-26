@@ -67,7 +67,7 @@ module "db" {
   engine               = "postgres"
   engine_version       = "11.14"
   family               = "postgres11" # DB parameter group
-  major_engine_version = "11"         # DB option group
+  major_engine_version = "12"         # DB option group
   instance_class       = "db.t2.micro"
 
   allocated_storage     = 5
@@ -137,7 +137,7 @@ module "db_default" {
   engine               = "postgres"
   engine_version       = "11.14"
   family               = "postgres11" # DB parameter group
-  major_engine_version = "11"         # DB option group
+  major_engine_version = "12"         # DB option group
   instance_class       = "db.t2.micro"
 
   allocated_storage = 20
