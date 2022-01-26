@@ -22,7 +22,7 @@ module "vpc" {
   name = local.name
   cidr = "10.99.0.0/18"
 
-  azs              = ["${local.region}a"]
+  azs              = ["${local.region}a", "${local.region}b"]
   public_subnets   = ["10.99.0.0/24"]
   # private_subnets  = ["10.99.3.0/24", "10.99.4.0/24", "10.99.5.0/24"]
   database_subnets = ["10.99.7.0/24"]
@@ -82,7 +82,7 @@ module "db" {
   password = "YourPwdShouldBeLongAndSecure!"
   port     = 5432
 
-  multi_az               = false
+  multi_az               = true
   subnet_ids             = module.vpc.database_subnets
   vpc_security_group_ids = [module.security_group.security_group_id]
 
