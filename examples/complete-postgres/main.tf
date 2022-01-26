@@ -4,7 +4,7 @@ provider "aws" {
 
 locals {
   name   = "complete-postgresql"
-  region = "eu-west-1"
+  region = "eu-central-1"
   tags = {
     Owner       = "user"
     Environment = "dev"
@@ -68,10 +68,10 @@ module "db" {
   engine_version       = "11.10"
   family               = "postgres11" # DB parameter group
   major_engine_version = "11"         # DB option group
-  instance_class       = "db.t3.large"
+  instance_class       = "db.t2.micro"
 
-  allocated_storage     = 20
-  max_allocated_storage = 100
+  allocated_storage     = 5
+  max_allocated_storage = 30
   storage_encrypted     = false
 
   # NOTE: Do NOT use 'user' as the value for 'username' as it throws:
@@ -82,7 +82,7 @@ module "db" {
   password = "YourPwdShouldBeLongAndSecure!"
   port     = 5432
 
-  multi_az               = true
+  multi_az               = false
   subnet_ids             = module.vpc.database_subnets
   vpc_security_group_ids = [module.security_group.security_group_id]
 
@@ -138,7 +138,7 @@ module "db_default" {
   engine_version       = "11.10"
   family               = "postgres11" # DB parameter group
   major_engine_version = "11"         # DB option group
-  instance_class       = "db.t3.large"
+  instance_class       = "db.t2.micro"
 
   allocated_storage = 20
 
