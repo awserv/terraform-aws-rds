@@ -65,12 +65,11 @@ module "db" {
 
   # All available versions: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts
   engine               = "postgres"
-  engine_version       = "12.5"
+  engine_version       = "11.5"
   family               = "postgres11" # DB parameter group
-  major_engine_version = "12"         # DB option group
+  major_engine_version = "11"         # DB option group
   instance_class       = "db.t2.micro"
   allow_major_version_upgrade = true
-
   allocated_storage     = 5
   max_allocated_storage = 30
   storage_encrypted     = false
@@ -137,12 +136,12 @@ module "db_default" {
 
   # All available versions: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts
   engine               = "postgres"
-  engine_version       = "11.8"
+  engine_version       = "12.5"
   family               = "postgres11" # DB parameter group
-  major_engine_version = "11"         # DB option group
+  major_engine_version = "12"         # DB option group
   instance_class       = "db.t2.micro"
-  # allow_major_version_upgrade = true
-
+  allow_major_version_upgrade = true
+  apply_immediately = true
   allocated_storage = 20
 
   # NOTE: Do NOT use 'user' as the value for 'username' as it throws:
