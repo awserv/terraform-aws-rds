@@ -69,10 +69,12 @@ module "db" {
   family               = "postgres11" # DB parameter group
   major_engine_version = "11"         # DB option group
   instance_class       = "db.t2.micro"
+  auto_major_version_upgrade = true
 
   allocated_storage     = 5
   max_allocated_storage = 30
   storage_encrypted     = false
+  apply_immediately = true
 
   # NOTE: Do NOT use 'user' as the value for 'username' as it throws:
   # "Error creating DB Instance: InvalidParameterValue: MasterUsername
