@@ -65,11 +65,11 @@ module "db" {
 
   # All available versions: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts
   engine               = "postgres"
-  engine_version       = "11.4"
+  engine_version       = "12.5"
   family               = "postgres11" # DB parameter group
-  major_engine_version = "11"         # DB option group
+  major_engine_version = "12"         # DB option group
   instance_class       = "db.t2.micro"
-  auto_major_version_upgrade = true
+  allow_major_version_upgrade = true
 
   allocated_storage     = 5
   max_allocated_storage = 30
@@ -137,10 +137,11 @@ module "db_default" {
 
   # All available versions: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts
   engine               = "postgres"
-  engine_version       = "11.4"
+  engine_version       = "11.8"
   family               = "postgres11" # DB parameter group
   major_engine_version = "11"         # DB option group
   instance_class       = "db.t2.micro"
+  # allow_major_version_upgrade = true
 
   allocated_storage = 20
 
